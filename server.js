@@ -6,7 +6,7 @@ require('dotenv').config()
 const express = require('express')
 const morgan = require('morgan')
 const methodOverride = require('method-override')
-
+const deviceRoutes = require('./controllers/device_routes')
 ////////////////////////////////////////////
 // Create our express application object
 ////////////////////////////////////////////
@@ -22,6 +22,7 @@ app.use(methodOverride('_method'))
 app.use(express.urlencoded({ extended: false }))
 // to serve files from public statically
 app.use(express.static('public'))
+app.use('/devices', deviceRoutes)
 
 ////////////////////////////////////////////
 // Routes
