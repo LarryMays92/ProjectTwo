@@ -21,8 +21,8 @@ Or Accept The Quote
 - they can accept the quote and schedule and appointment
 Select A appointment 
 - select a location and set a time and date 
-![Wireframe](/New\Note .jpeg)
-![wireframe](/New\Note 2.jpeg)
+![Wireframe](/Note1.jpeg)
+![wireframe](/Note2.jpeg)
 
  ## API End Points
 
