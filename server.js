@@ -7,10 +7,25 @@ const express = require('express')
 const morgan = require('morgan')
 const methodOverride = require('method-override')
 const deviceRoutes = require('./controllers/device_routes')
+const quoteRoutes = require ('./controllers/quote_routes')
+const userRoutes = require('./controllers/user_routes')
 ////////////////////////////////////////////
 // Create our express application object
 ////////////////////////////////////////////
 const app = require('liquid-express-views')(express())
+const session = require('express-session')
+const MongoStore = require('connect-mongo')
+// here's the middleware that sets up our sessions
+app.use(
+	session({
+		secret: process.env.SECRET,
+		store: MongoStore.create({
+			mongoUrl: process.env.DATABASE_URI
+		}),
+		saveUninitialized: true,
+		resave: false
+	})
+)
 
 ////////////////////////////////////////////
 // Middleware
@@ -23,6 +38,8 @@ app.use(express.urlencoded({ extended: false }))
 // to serve files from public statically
 app.use(express.static('public'))
 app.use('/devices', deviceRoutes)
+app.use('/quotes', quoteRoutes )
+app.use('/users', userRoutes)
 
 ////////////////////////////////////////////
 // Routes

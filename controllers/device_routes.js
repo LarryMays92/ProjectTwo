@@ -3,6 +3,21 @@ const express = require('express')
 const router = express.Router()
 // importing Fruit model to access database
 const Device = require('../models/device')
+ 
+// GET - Index
+// localhost:3000/devices
+router.get('/', (req, res) => {
+    // mongoose to find all fruits
+     Device.find({})
+    // return device as json
+         .then(device => {
+             res.json(devices)
+            //res.render('devices/index')
+         })
+         .catch(err => {
+             res.json(err)
+         })
+})
 
 // seed route --> has been moved to models/seed.js
 // insert many items into our database with just going to this route
