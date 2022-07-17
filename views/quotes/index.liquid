@@ -1,12 +1,22 @@
-
 {% layout 'layout.liquid' %}
+
 {% block content %}
+<div>
+    <h2 class="display-6">All Quotes</h2>
+    <div class="row">
 
-<h1> Hello </h1>
-
-
-
-
-
-
-{% endblock%}
+        {% for quote in quotes %}
+            <div class="card" 
+            style="width: 18rem">
+                <h5 class="card-header">{{quote.name}}</h5>
+                <div class="card-body">
+                    <h6 class="card-title">{{quote.number}}</h5>
+                    <h5 class="card-header">{{quote.name}}</h5>
+                    
+                    <a href="/quotes/{{quote._id}}" class="btn btn-info">View {{quote.name}}</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

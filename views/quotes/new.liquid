@@ -25,20 +25,17 @@
                 name="Issue"
             >
             <label class="form-label">Type Of Device</label>
-            <label>Select a Device</label>
                 <select name="device" id="device">
                 {% for device in devices %}
                 <option value={{device._id}}>{{device.make}}                {{device.model}}</option>
                 {% endfor %}
                 </select>  
         </fieldset>
+        <input 
+            type="submit" 
+            value="Create New Quote" 
+            class="btn btn-success"
+        >
     </form>
 </div>
-
-
-
-
-
-
-
 {% endblock%}

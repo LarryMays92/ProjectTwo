@@ -11,7 +11,8 @@ const quoteSchema = new Schema({
     issue: String,
     device: {
         type: Schema.Types.ObjectId, 
-        ref: 'Device'
+        ref: 'Device',
+        required: false
     },
 })
 

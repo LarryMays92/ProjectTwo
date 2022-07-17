@@ -10,20 +10,56 @@ router.get('/', (req, res) => {
     //mongoose to find all fruits
     Quote.find()
     // return fruits as json
-         .then(quotes => {
-            console.log(quotes)
-             //res.json(quotes)
+         .then(quote => {
+            console.log(quote)
+             //res.json(quote)
             res.render('quotes/index')
          })
          .catch(err => {
             res.json(err)
          })
 })
+
+router.get('/myquotes', (req, res) => {
+    // find the fruits associated with the logged in user
+    console.log("a",req.session.userID)
+    Quote.find({ owner: req.session.userId })
+        .then(quote => {
+            res.render('quotes/show', )
+        })
+        .catch(error => {
+            console.log(error)
+            res.json({ error })
+        })
+})
+
+
 // GET - New
 router.get('/newquote', (req, res) => {
     //mongoose to find all fruits
-   res.render('quotes/show')
+   res.render('quotes/new')
 })
+
+//POST - Create 
+router.post('/', (req, res) => {
+    // now that we have user specific fruits, we'll add a username upon creation
+    // remember, when we login, we saved the username to the session object
+    // using the ._id to set the owner field
+    
+    req.body.owner = req.session.userId
+
+    console.log(req.body)
+    Quote.create(req.body)
+        .then(quote => {
+            console.log(quote)
+            // res.json(fruit)
+            res.redirect('/quotes')
+        })
+        .catch(err => {
+            res.json(err)
+        })
+})
+
 // router.get ('/seed',(req,res)=> {
 //     res.render('./models/seed')
 // })
