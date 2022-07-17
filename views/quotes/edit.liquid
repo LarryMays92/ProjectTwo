@@ -1,11 +1,33 @@
 {% layout 'layout.liquid' %}
 {% block content %}
-
-
-
-
-
-
-
-
+<div class="container-md">
+    <form action="/quotes/{{quote._id}}?_method=PUT" method="POST">
+        <fieldset>
+            <legend>Edit A {{quote}}</legend>
+            <!-- is it suppose to be {{quote.device}} & name wont change -->
+            <label class="form-label">Number:</label>
+            <input 
+                class="form-control" 
+                type="text" 
+                name="number" 
+                placeholder="enter phone number"
+                value="{{quote.number}}"
+            >
+            <label class="form-label">Brief Description Of Issue:</label>
+            <input 
+                class="form-control" 
+                type="text" 
+                name="issue"
+                value="{{quote.issue}}"
+            >
+            <label class="form-label">Type Of Device</label>
+            <label>Select a Device</label>
+                <select name="device" id="device">
+                {% for device in devices %}
+                <option value={{device._id}}>{{device.make}}                {{device.model}}</option>
+                {% endfor %}
+                </select>  
+        </fieldset>
+    </form>
+</div>
 {% endblock%}

@@ -6,10 +6,13 @@ const mongoose = require('./connection')
 const { Schema, model } = mongoose
 
 const quoteSchema = new Schema({
-    Name: String,
-    Number: Number,
-    Issue: String,
-    Device: String
+    name: String,
+    number: Number,
+    issue: String,
+    device: {
+        type: Schema.Types.ObjectId, 
+        ref: 'Device'
+    },
 })
 
 // need to make a model
@@ -17,3 +20,5 @@ const quoteSchema = new Schema({
 const Quote = model('Quote', quoteSchema)
 
 module.exports = Quote
+
+
