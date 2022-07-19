@@ -5,6 +5,18 @@ const router = express.Router()
 const Quote = require('../models/quotes')
 const Device = require('../models/device')
  
+// DELETE - Delete
+router.delete('/:id/delete', (req, res) => {
+    const quoteId = req.params.id
+
+    Quote.findByIdAndRemove(quoteId)
+        .then(quote => {
+            res.redirect('/quotes/myquotes')
+        })
+        .catch(err => {
+            res.json(err)
+        })
+})
 
 
 // GET route for displaying an update form
@@ -12,13 +24,16 @@ router.get('/:id/edit', (req, res) => {
     const quoteId = req.params.id
 
     Quote.findById(quoteId)
-        .then(quote => {
-            res.render('quotes/edit', {quote})
+        .then(quotes => {
+            Device.find({})
+            .then(devices => {
+                res.render('quotes/edit', {quotes, devices })
+            })
+            .catch()
         })
         .catch(err => {
             res.json(err)
         })
-
 })
 
 //PUT - Edit

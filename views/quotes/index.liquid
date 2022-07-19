@@ -18,8 +18,9 @@
 
                     <!-- edit button -->
                     <a href="/quotes/{{quote._id}}/edit" class="btn btn-info">Edit {{quote.device.make.model}}</a>
-
-                    <a href="/quotes/delete{{quote._id}}" class="btn btn-info"> Delete {{quote.device.model}}</a>
+                    
+                    <!-- delete button -->
+                    <a href="/quotes/{{quote._id}}/" class="btn btn-info"> Delete {{quote.device.model}}</a>
                 </div>
             </div>
         {% endfor %}
