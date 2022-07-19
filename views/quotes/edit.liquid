@@ -3,7 +3,7 @@
 <div class="container-md">
     <form action="/quotes/{{quote._id}}?_method=PUT" method="POST">
         <fieldset>
-            <legend>Edit A {{quote}}</legend>
+            <legend>Edit Quote</legend>
             <!-- is it suppose to be {{quote.device}} & name wont change -->
             <label class="form-label">Number:</label>
             <input 
@@ -21,13 +21,17 @@
                 value="{{quote.issue}}"
             >
             <label class="form-label">Type Of Device</label>
-            <label>Select a Device</label>
-                <select name="device" id="device">
-                {% for device in devices %}
-                <option value={{device._id}}>{{device.make}}                {{device.model}}</option>
-                {% endfor %}
-                </select>  
+            <select name="device" id="device">
+            {% for device in devices %}
+            <option value={{device._id}}>{{device.make}}{{device.model}}</option>
+            {% endfor %}
+            </select> 
+
         </fieldset>
+        <div class="btn-group">
+            <input type="submit" value="Submit {{ quote.device.make.model}} " class="btn btn-success">
+            <a href="/quotes/myquotes" class="btn btn-warning"> Back </a>
+        </div>
     </form>
 </div>
 {% endblock%}

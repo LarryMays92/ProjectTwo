@@ -1,42 +1,13 @@
 {% layout 'layout.liquid' %}
 {% block content %}
 <div class="container-md">
-    <form action="/quotes" method="POST">
-        <fieldset>
-            <legend>View A Quote</legend>
-            <label class="form-label">Name:</label>
-            <input 
-                class="form-control" 
-                type="text" 
-                name="name" 
-                placeholder="enter name"
-            >
-            <label class="form-label"> Number:</label>
-            <input 
-                class="form-control" 
-                type="text" 
-                phone number="number" 
-                placeholder="enter phone number"
-            >
-            <label class="form-label"> Brief Description Of Issue:</label>
-            <input 
-                class="form-control" 
-                type="text" 
-                Issue ="issue" 
-                placeholder="Brief Description"
-            >
-            <label class="form-label">Type Of Device</label>
-            <label>Select a Device</label>
-                <select name="device" id="device">
-                {% for device in devices %}
-                <option value={{device._id}}>{{device.make}}                {{device.model}}</option>
-                {% endfor %}
-                </select>             
-        </fieldset>
-        <div class="btn-group">
-            <a href="/quotes/" class="btn btn-primary">Create Quote</a>
-            <form action="/quotes/{{fruit._id}}?_method=DELETE" method="POST">
-                <input type="submit" value="Delete" class="btn btn-danger">
-            </form>
-        </div>
+    <h3>Thanks {{quote.name}}, Your Est. Quote For 
+    {{quote.device.make}}-{{quote.device.model}} Repair Will Be ${{quote.device.repairCost}}!</h3>
+
+    <h5> Visit One Of Repair Locations Today, Estimated Time Of Repair Is Between 15-25 Minutes ! </h5>
+
+
+    
+    
+</div>
 {% endblock%}
