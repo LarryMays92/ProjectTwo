@@ -20,7 +20,9 @@
                     <a href="/quotes/{{quote._id}}/edit" class="btn btn-info">Edit {{quote.device.make.model}}</a>
                     
                     <!-- delete button -->
-                    <a href="/quotes/{{quote._id}}/" class="btn btn-info"> Delete {{quote.device.model}}</a>
+                    <form action="/quotes/{{quote._id}}/delete?_method=DELETE" method="POST">
+                        <input type="submit" value="Delete" class="btn btn-danger">
+                    </form>
                 </div>
             </div>
         {% endfor %}

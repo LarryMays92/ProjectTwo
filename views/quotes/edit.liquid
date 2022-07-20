@@ -1,35 +1,51 @@
 {% layout 'layout.liquid' %}
 {% block content %}
 <div class="container-md">
-    <form action="/quotes/{{quote._id}}?_method=PUT" method="POST">
+    <form action="/quotes/{{quote.id}}" method="POST">
         <fieldset>
             <legend>Edit Quote</legend>
-            <!-- is it suppose to be {{quote.device}} & name wont change -->
+            <label class="form-label">Name:</label>
+            <input 
+                class="form-control" 
+                type="text" 
+                name="Name" 
+                placeholder="enter your name"
+                
+            >
             <label class="form-label">Number:</label>
             <input 
                 class="form-control" 
                 type="text" 
                 name="number" 
                 placeholder="enter phone number"
-                value="{{quote.number}}"
             >
+            <!-- how to put the pre filled info in maybe by dotting into it random   -->
             <label class="form-label">Brief Description Of Issue:</label>
             <input 
                 class="form-control" 
                 type="text" 
                 name="issue"
-                value="{{quote.issue}}"
+                placeholder="enter repair option here"
+                
             >
-            <label class="form-label">Type Of Device</label>
+            <label class="form-label">
+            Select A Device:</label>
             <select name="device" id="device">
             {% for device in devices %}
-            <option value={{device._id}}>{{device.make}}{{device.model}}</option>
+            <option value={{device._id}}>
+                {{device.make}}
+                {{device.model}}</option>
             {% endfor %}
             </select> 
-
         </fieldset>
-        <div class="btn-group">
-            <input type="submit" value="Submit {{ quote.device.make.model}} " class="btn btn-success">
+
+        <!-- submit button -->
+            <input 
+                type="submit" 
+                value="Edit" 
+                class="btn btn-success">
+            
+            <!-- back button -->
             <a href="/quotes/myquotes" class="btn btn-warning"> Back </a>
         </div>
     </form>

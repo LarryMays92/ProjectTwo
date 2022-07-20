@@ -25,41 +25,41 @@ router.get('/', (req, res) => {
 // router.get('/seed', (req, res) => {
 //     // starting data
 //     const startDevices = [
-//         {   make: "apple",
+//         {   make: "apple ",
 //             model: "iphone 12 pro max ",
 //             repairCost: 25
 //         },
-//         {   make: "Samsung",
+//         {   make: "Samsung ",
 //             model: "Galaxy s20",
 //             repairCost: 35
 //         },
-//         {   make: "Google",
+//         {   make: "Google ",
 //             model: "Pixel 4"
 //         },
-//         {   make: "LG",
+//         {   make: "LG ",
 //             model: "Stylo 6"
 //         },
-//         {   make: "apple",
+//         {   make: "apple ",
 //             model: "iphone 11 pro ",
 //             repairCost: 35
 //         },
-//         {   make: "apple",
+//         {   make: "apple ", 
 //             model: "iphone 12 pro ",
 //             repairCost: 35
 //         },
-//         {   make: "apple",
+//         {   make: "apple ",
 //             model: "iphone 12 ",
 //             repairCost: 30
 //         },
-//         {   make: "apple",
+//         {   make: "apple ",
 //             model: "iphone 11 mini" ,
 //             repairCost: 25
 //         },
-//         {   make: "Motorola",
+//         {   make: "Motorola ",
 //             model: "G Stylus ",
 //             repairCost: 45
 //         },
-//         {   make: "apple",
+//         {   make: "apple ",
 //             model: "iphone XR",
 //             repairCost: 30
 //         }

@@ -4,8 +4,9 @@ const router = express.Router()
 // importing Fruit model to access database
 const Quote = require('../models/quotes')
 const Device = require('../models/device')
- 
-// DELETE - Delete
+ //seed doesnt have space after model dr does 
+
+ // DELETE - Delete
 router.delete('/:id/delete', (req, res) => {
     const quoteId = req.params.id
 
@@ -49,37 +50,6 @@ router.put('/:id', (req, res) => {
         })
 })
 
-
-
-// GET - Index
-// // localhost:3000/quotes
-// router.get('/', (req, res) => {
-//     //mongoose to find all fruits
-//     Quote.find()
-//     // return quotes as json
-//          .then(quote => {
-//             console.log(quote)
-//              //res.json(quote)
-//             res.render('quotes/index')
-//          })
-//          .catch(err => {
-//             res.json(err)
-//          })
-// })
-// get index/////////////////////
-router.get('/myquotes', (req, res) => {
-    // find the quotes associated with the logged in user
-    Quote.find({ owner: req.session.userId })
-        .then(quotes => {
-            res.render('quotes/index', {quotes} )
-        })
-        .catch(error => {
-            console.log(error)
-            res.json({ error })
-        })
-})
-
-
 // GET - New
 router.get('/newquote', (req, res) => {
     Device.find({})
@@ -96,7 +66,7 @@ router.get('/newquote', (req, res) => {
 
 //POST - Create 
 router.post('/', (req, res) => {
-    // now that we have user specific fruits, we'll add a username upon creation
+    // now that we have user specific quotes, we'll add a username upon creation
     // remember, when we login, we saved the username to the session object
     // using the ._id to set the owner field
     
@@ -114,6 +84,22 @@ router.post('/', (req, res) => {
         })
 })
 
+
+// get index/////////////////////
+router.get('/myquotes', (req, res) => {
+    // find the quotes associated with the logged in user
+    Quote.find({ owner: req.session.userId })
+        .then(quotes => {
+            res.render('quotes/index', {quotes} )
+        })
+        .catch(error => {
+            console.log(error)
+            res.json({ error })
+        })
+})
+
+
+
 // router.get ('/seed',(req,res)=> {
 //     res.render('./models/seed')
 // })
@@ -127,12 +113,12 @@ router.get('/:id', (req, res) => {
     Quote.findById(req.params.id)
         .populate("device")
         .then(quote => {
-            console.log("this the quote")
-            console.log(quote)
+            // console.log("this the quote")
+            // console.log(quote)
             res.render('quotes/show', {quote} )
         })
         .catch(error => {
-            console.log(error)
+            // console.log(error)
             res.json({ error })
         })
 })
