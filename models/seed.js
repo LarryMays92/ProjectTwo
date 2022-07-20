@@ -74,7 +74,7 @@
 //         .then(deletedDevice => {
 //             console.log('this is what remove returns', deletedDevice)
 
-//             // now that our delete was successful, we can create our fruits
+//             // now that our delete was successful, we can create our quotes
 //             Device.create(startDevices)
 //                 .then(data => {
 //                     console.log('the new devices', data)

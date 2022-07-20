@@ -1,7 +1,8 @@
+
 // requiring dotenv package so we can geet things out of our .env file
 require('dotenv').config()
 // getting mongoose to use
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
 // Fire off the connection to Mongo DB
 mongoose.connect(process.env.MONGODB_URI, {
@@ -17,6 +18,5 @@ mongoose.connection.on('connected', () => {
 mongoose.connection.on("error", (err) => {
   console.log("Could not connect to MongoDB!", err);
 });
-
 
 module.exports = mongoose
