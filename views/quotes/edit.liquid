@@ -1,16 +1,16 @@
 {% layout 'layout.liquid' %}
 {% block content %}
 <div class="container-md">
-    <form action="/quotes/{{quote.id}}" method="POST">
+    <form action="/quotes/{{quote.id}}?_method=PUT"  method="POST">
         <fieldset>
             <legend>Edit Quote</legend>
             <label class="form-label">Name:</label>
             <input 
                 class="form-control" 
                 type="text" 
-                name="Name" 
+                name="name" 
                 placeholder="enter your name"
-                
+                value= "{{quote.name}}"
             >
             <label class="form-label">Number:</label>
             <input 

@@ -7,7 +7,7 @@ const { Schema, model } = mongoose
 
 const quoteSchema = new Schema({
     name: String,
-    number: Number,
+    number: String,
     issue: String,
     device: {
         type: Schema.Types.ObjectId, 

@@ -25,10 +25,10 @@ router.get('/:id/edit', (req, res) => {
     const quoteId = req.params.id
 
     Quote.findById(quoteId)
-        .then(quotes => {
+        .then(quote => {
             Device.find({})
             .then(devices => {
-                res.render('quotes/edit', {quotes, devices })
+                res.render('quotes/edit', {quote, devices })
             })
             .catch()
         })
@@ -40,7 +40,6 @@ router.get('/:id/edit', (req, res) => {
 //PUT - Edit
 router.put('/:id', (req, res) => {
     const quoteId = req.params.id
-
     Quote.findByIdAndUpdate(quoteId, req.body, { new: true })
         .then(quote => {
             res.redirect(`/quotes/${quote._id}`)
