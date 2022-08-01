@@ -1,0 +1,29 @@
+/* .container-main {
+    position: absolute;
+    z-index: 2;
+    display: flex;
+
+
+}
+
+.container-fluid {
+    position: absolute;
+    z-index: 1;
+} */
+
+body {
+    background: url("https://s3-media0.fl.yelpcdn.com/bphoto/bNYL0RLb7aGFlfiKFJzrBw/o.jpg");
+    background-size: cover;
+
+}
+
+label {
+    color: yellow;
+}
+
+h2 {
+    color: yellowgreen;
+}
+
+
+
